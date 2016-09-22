@@ -11,6 +11,7 @@ class Vehicle extends Model
         'make',
         'model',
         'year_vehicle',
+        'city_code',
         'type',
     ];
 
