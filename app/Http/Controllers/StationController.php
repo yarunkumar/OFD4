@@ -12,7 +12,7 @@ class StationController extends Controller
 {
         public function index()
     {
-        //
+        
         $stations = Station::all();
         return view('stations.index',compact('stations'));
     }
@@ -44,7 +44,7 @@ class StationController extends Controller
     public function edit($id)
     {
         $station=Station::find($id);
-        return view('station.edit',compact('station'));
+        return view('stations.edit',compact('station'));
     }
 
     /**

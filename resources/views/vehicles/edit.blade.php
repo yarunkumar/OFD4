@@ -1,10 +1,10 @@
 @extends('app')
 @section('content')
-    <h1>Update Customer</h1>
+    <h1>Update Vehicle</h1>
     {!! Form::model($vehicle,['method' => 'PATCH','route'=>['vehicles.update',$vehicle->id]]) !!}
      <div class="form-group">
-        {!! Form::label('van_no', 'Van No:') !!}
-        {!! Form::text('van_no',null,['class'=>'form-control']) !!}
+        {!! Form::label('id', 'ID:') !!}
+        {!! Form::text('id',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('make', 'Make') !!}

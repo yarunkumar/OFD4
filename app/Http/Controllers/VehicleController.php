@@ -8,10 +8,12 @@ use App\Http\Requests;
 
 use App\Vehicle;
 
+use App\Station;
+
 class VehicleController extends Controller
 {
   //
-	public function index()
+    public function index()
     {
         //
         $vehicles= Vehicle::all();
@@ -20,7 +22,7 @@ class VehicleController extends Controller
 
     public function show($id)
     {
-        $vehicle = Vehicle::findOrFail($van_no);
+        $vehicle = Vehicle::findOrFail($id);
         return view('vehicles.show',compact('vehicle'));
         
     }
@@ -28,7 +30,8 @@ class VehicleController extends Controller
 
     public function create()
     {
-        return view('vehicles.create');
+        $stations = Station::lists('id');
+        return view('vehicles.create', compact('vehicles'));
     }
 
     /**
@@ -45,8 +48,8 @@ class VehicleController extends Controller
 
     public function edit($id)
     {
-        $customer=Customer::find($id);
-        return view('customers.edit',compact('customer'));
+        $vehicle=Vehicle::find($id);
+        return view('vehicles.edit',compact('vehicle'));
     }
 
     /**
@@ -58,24 +61,18 @@ class VehicleController extends Controller
     public function update($id,Request $request)
     {
         //
-        $customer= new Customer($request->all());
-        $customer=Customer::find($id);
-        $customer->update($request->all());
-        return redirect('customers');
+        $vehicle= new Vehicle($request->all());
+        $vehicle=Vehicle::find($id);
+        $vehicle->update($request->all());
+        return redirect('vehicles');
     }
 
     public function destroy($id)
     {
-        Customer::find($id)->delete();
-        return redirect('customers');
+        Vehicle::find($id)->delete();
+        return redirect('vehicles');
     }
-public function stringify($id)
-{
-    $customer = Customer::where('cust_number', $id)->select('cust_number','name','address','city','state','zip','home_phone','cell_phone')->first();
 
-    $customer = $customer->toArray();
-    return response()->json($customer);
-}
 
    //
 }

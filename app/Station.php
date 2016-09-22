@@ -15,5 +15,9 @@ class Station extends Model
         'created_at',
     ];
     
+    public function vehicles() {
+        return $this->hasMany('App\Vehicle');
+
+        }
    
 }

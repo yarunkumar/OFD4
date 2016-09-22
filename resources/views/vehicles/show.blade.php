@@ -9,7 +9,7 @@
             <tr class="bg-info">
             <tr>
                 <td>Van No</td>
-                <td><?php echo ($vehicle['van_no']); ?></td>
+                <td><?php echo ($vehicle['id']); ?></td>
             </tr>
             <tr>
                 <td>Make</td>
